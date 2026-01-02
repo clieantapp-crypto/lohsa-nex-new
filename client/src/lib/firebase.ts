@@ -23,14 +23,14 @@ import {
 } from "firebase/auth";
 
 const firebaseConfig = {
-  apiKey: "AIzaSyCJx5avdyV37pLWEa4iQCRIWeAs93A08kA",
-  authDomain: "new-bccc.firebaseapp.com",
-  databaseURL: "https://new-bccc-default-rtdb.firebaseio.com",
-  projectId: "new-bccc",
-  storageBucket: "new-bccc.firebasestorage.app",
-  messagingSenderId: "834804078736",
-  appId: "1:834804078736:web:17998f00cd3cfb5293a015",
-  measurementId: "G-PG8TZMLDEY",
+  apiKey: "AIzaSyBJwAk57JgSfu-nXlctc9t5M2b5A0yOH3o",
+  authDomain: "taminn-jh.firebaseapp.com",
+  databaseURL: "https://taminn-jh-default-rtdb.firebaseio.com",
+  projectId: "taminn-jh",
+  storageBucket: "taminn-jh.firebasestorage.app",
+  messagingSenderId: "910897215892",
+  appId: "1:910897215892:web:d4788788e3a66d94abb781",
+  measurementId: "G-MKE0PZWQEX",
 };
 
 const app = getApps().length ? getApp() : initializeApp(firebaseConfig);
